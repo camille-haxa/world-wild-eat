@@ -3,47 +3,90 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <title>Recommandation de restaurants en France | World Wild Eat</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
+      rel="shortcut icon"
+      href="ressources/images/favicon-16x16.png"
+      type="image/x-icon"
     />
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css" type="text/css" />
   </head>
   <body>
-    <main>
-      <div class="card-container">
-        <section class="container-restaurant">
-          <div class="img-container">
-            <img src="image/city.jpg" alt="Rue restaurant ville" />
+    <header>
+      <div id="container-top">
+        <nav>
+          <img
+            src="ressources/images/logo.png"
+            alt="Logo de la marque World Wild Eat"
+            id="logo"
+          />
+          <div class="curtainNavigation">
+            <a href="#">Le concept</a>
+            <a href="#">Grand Ouest</a>
+            <a href="#">Sud Ouest</a>
+            <a href="#">Grand Est</a>
           </div>
-          <section class="description">
-            <h2>VILLE</h2>
-            <h3>Le carbet d'Oc</h3>
-            <h4>8 rue des Filatiers 31 000 Toulouse</h4>
-            <article class="restaurant-description">
-              <p class="explication-restaurant">
-                Situé dans une rue typiquement Toulousaine, vous retrouverez
-                leur carte bistrotière et à Tapas aux accents du Sud-Ouest et
-                aux Saveurs du Monde. Restaurant de style décontracté, avec
-                terrasse et boiseries, spécialisé dans les tapas, les mojitos et
-                les bières artisanales.
-              </p>
-              <p class="site-restaurant">
-                https://www.facebook.com/LeCarbetDOc
-              </p>
-              <p class="accebilite-restaurant">
-                Accessibilité : parking à proximité, Terrasse
-              </p>
-            </article>
-            <div class="button">
-              <button>+</button>
-            </div>
-          </section>
-        </section>
+          <button
+            type="button"
+            class="nav-toggler"
+            aria-label="toggle curtain navigation"
+          >
+            <span class="line l1"></span>
+            <span class="line l2"></span>
+            <span class="line l3"></span>
+          </button>
+        </nav>
+        <img
+          class="img-landing"
+          src="ressources/images/header.jpg"
+          alt="Prise de vue d'un set de couverts."
+        />
+        <h1>World <br />Wild <br />Eat</h1>
       </div>
+
+      <div class="container-bottom">
+        <h2>Trouvez où bien manger, loin de chez vous!</h2>
+      </div>
+    </header>
+    <main>
+      <section class="region-selection"></section>
+      <a href="#container-top" class="goTopAnchor"
+        ><img
+          src="ressources/images/circle-arrow-up.png"
+          alt="bouton retour en haut"
+          srcset="ressources/images/circle-arrow-up.svg"
+          class="goTopButton"
+      /></a>
     </main>
+    <footer>
+      <div class="footer">
+        <div class="left-footer">
+          <p>Un restaurant à nous suggérer?</p>
+          <form action="">
+            <textarea
+              id="message"
+              name="message"
+              rows="3"
+              cols="30"
+              maxlength="500"
+              wrap
+            >
+Précisez-nous son nom et sa ville ici!</textarea
+            >
+            <input
+              type="submit"
+              class="submit"
+              value="Envoyez votre suggestion"
+            />
+          </form>
+        </div>
+        <div class="right-footer">
+          <p><a class="footer-url" href="https://unsplash.com/fr">Images</a></p>
+          <p><a class="footer-url" href="https://lucide.dev/">Icônes</a></p>
+          <p>Copyright Crew-stillant</p>
+        </div>
+      </div>
+    </footer>
+    <script src="script.js"></script>
   </body>
 </html>
