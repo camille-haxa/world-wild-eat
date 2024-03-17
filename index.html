@@ -6,72 +6,87 @@
     <title>Recommandation de restaurants en France | World Wild Eat</title>
     <link
       rel="shortcut icon"
-      href="ressources/favicon-16x16.png"
+      href="ressources/images/favicon-16x16.png"
       type="image/x-icon"
     />
     <link rel="stylesheet" href="style.css" type="text/css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
-      rel="stylesheet"
-    />
   </head>
   <body>
     <header>
-      <div class="container-top">
+      <div id="container-top">
+        <nav>
+          <img
+            src="ressources/images/logo.png"
+            alt="Logo de la marque World Wild Eat"
+            id="logo"
+          />
+          <div class="curtainNavigation">
+            <a href="#">Le concept</a>
+            <a href="#">Grand Ouest</a>
+            <a href="#">Sud Ouest</a>
+            <a href="#">Grand Est</a>
+          </div>
+          <button
+            type="button"
+            class="nav-toggler"
+            aria-label="toggle curtain navigation"
+          >
+            <span class="line l1"></span>
+            <span class="line l2"></span>
+            <span class="line l3"></span>
+          </button>
+        </nav>
         <img
           class="img-landing"
-          src="ressources/header.jpg"
+          src="ressources/images/header.jpg"
           alt="Prise de vue d'un set de couverts."
         />
         <h1>World <br />Wild <br />Eat</h1>
       </div>
-      <nav></nav>
+
       <div class="container-bottom">
         <h2>Trouvez où bien manger, loin de chez vous!</h2>
       </div>
     </header>
     <main>
-      <section class="region-selection">
-        <article>
-          <img
-            class="img-body"
-            src="ressources/crepes.jpg"
-            alt="Photo de crêpes."
-          />
-          <h3>Grand Ouest</h3>
-        </article>
-        <article>
-          <img
-            class="img-body"
-            src="ressources/canneles.jpg"
-            alt="Photos de cannelés."
-          />
-          <h3>Sud Ouest</h3>
-        </article>
-        <article>
-          <img
-            class="img-body"
-            src="ressources/bretzel.jpg"
-            alt="Photos de bretzel."
-          />
-          <h3>Grand Est</h3>
-        </article>
-      </section>
+      <section class="region-selection"></section>
+      <a href="#container-top" class="goTopAnchor"
+        ><img
+          src="ressources/images/circle-arrow-up.png"
+          alt="bouton retour en haut"
+          srcset="ressources/images/circle-arrow-up.svg"
+          class="goTopButton"
+      /></a>
     </main>
     <footer>
       <div class="footer">
         <div class="left-footer">
-          <p>Un restaurant à suggérer?</p>
-          <p>Précisez-nous son nom et sa ville!</p>
+          <p>Un restaurant à nous suggérer?</p>
+          <form action="">
+            <textarea
+              id="message"
+              name="message"
+              rows="3"
+              cols="30"
+              maxlength="500"
+              wrap
+            >
+Précisez-nous son nom et sa ville ici!</textarea
+            >
+            <input
+              type="submit"
+              class="submit"
+              value="Envoyez votre suggestion"
+            />
+          </form>
         </div>
         <div class="right-footer">
-          <p>Copyright</p>
-          <p>Crée par le Crew-stillant</p>
-          <p>Images</p>
+          <p><a class="footer-url" href="https://unsplash.com/fr">Images</a></p>
+          <p><a class="footer-url" href="https://lucide.dev/">Icônes</a></p>
+          <p>Copyright Crew-stillant</p>
         </div>
       </div>
     </footer>
+    <script src="script.js"></script>
   </body>
 </html>
