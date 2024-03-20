@@ -233,7 +233,11 @@ form {
 .footer-url {
     text-decoration: none;
     color: var(--second-color);
-}*{
+}
+
+/* Le CSS de card restaurant A.B*/
+
+*{
     box-sizing: border-box;
    /*outline: solid 1px red ;*/
 }
@@ -242,19 +246,19 @@ body{
     margin: 0;
 }
 
-img{
+.img-card-restaurant{
     width: 160px;
     height:160px;
     border-radius: 50%;
 }
 
-main {
+.main-card-restaurant {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.img-container{
+.img-container-card-restaurant{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -270,7 +274,7 @@ main {
     
 }
 
-.description{
+.card-restaurant-description{
     border: 4px solid #4A6C6F;
     box-shadow: 5px 5px 2px 1px rgba(0, 0, 0, 0.2);
     margin: 20px 20px 20px 20px;
@@ -281,16 +285,16 @@ main {
     font-family: "Montserrat" , sans-serif;
 }
 
-h2{
+.title-city-restaurant{
     margin-bottom: 5px;
 }
 
-h3{
+.name-restaurant{
     margin-top:  5px;;
     margin-bottom: 0;
 }
 
-h4{
+.adresse-restaurant{
     text-align: center;
     margin: 20px 100px ;
 }
@@ -312,14 +316,14 @@ h4{
     margin-bottom: 30px;
 }
 
-.button {
+.button-card-restaurant {
     display: flex;
     flex-direction: column;
     align-items: center;
     max-height: 15px;
 }
 
-button {
+.second-button-card-restaurant {
     display: flex;
     border-radius: 50%;
     padding: 6px 12px;
