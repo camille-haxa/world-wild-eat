@@ -20,6 +20,7 @@
             alt="Logo de la marque World Wild Eat"
             id="logo"
           />
+          <!-- Début du code nécessaire au menu burger -->
           <div class="curtainNavigation">
             <a href="#">Le concept</a>
             <a href="#">Grand Ouest</a>
@@ -35,6 +36,7 @@
             <span class="line l2"></span>
             <span class="line l3"></span>
           </button>
+          <!-- Fin du code nécessaire au menu burger -->
         </nav>
         <img
           class="img-landing"
@@ -45,10 +47,11 @@
       </div>
 
       <div class="container-bottom">
-        <h2>Trouvez où bien manger, loin de chez vous!</h2>
+        <h2 class="baseline">Trouvez où bien manger, loin de chez vous!</h2>
       </div>
     </header>
     <main>
+      <!-- La section est la zone dans laquelle intervient la fonction createRegion du script -->
       <section class="region-selection"></section>
       <a href="#container-top" class="goTopAnchor"
         ><img
@@ -62,14 +65,15 @@
       <div class="footer">
         <div class="left-footer">
           <p>Un restaurant à nous suggérer?</p>
-          <form action="">
+          <!-- Les attributs action et method de la balise form sont volontairement oubliés du fait de l'absence de BDD -->
+          <form class="footer-form">
             <textarea
               id="message"
               name="message"
               rows="3"
               cols="30"
               maxlength="500"
-              wrap
+              wrap="hard"
             >
 Précisez-nous son nom et sa ville ici!</textarea
             >

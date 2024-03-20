@@ -1,3 +1,4 @@
+/* Interactivité du menu burger YD*/
 const burgerButton = document.querySelector(".nav-toggler");
 const navigation = document.querySelector(".curtainNavigation");
 
@@ -7,6 +8,7 @@ function toggleNav() {
   navigation.classList.toggle("active");
 }
 
+/* Création et agrégation des régions sur la landing page par ajout d'un objet dans le tableau si nécessaire YD*/
 const regionArray = [
   {
     name: "Grand Ouest",
@@ -29,16 +31,17 @@ function createRegion(regions) {
     regionComponent.classList.add("region-component");
     regionPresentation.appendChild(regionComponent);
 
-    const regionButton = document.createElement("img");
-    regionButton.classList.add("region-button");
-    regionButton.src = region.img;
-    regionComponent.appendChild(regionButton);
+    const regionComponentImage = document.createElement("img");
+    regionComponentImage.classList.add("region-button");
+    regionComponentImage.src = region.img;
+    regionComponent.appendChild(regionComponentImage);
 
-    const regionTitle = document.createElement("h3");
-    regionTitle.classList.add("region-title");
-    regionTitle.textContent = region.name;
-    regionComponent.appendChild(regionTitle);
+    const regionComponentTitle = document.createElement("h3");
+    regionComponentTitle.classList.add("region-title");
+    regionComponentTitle.textContent = region.name;
+    regionComponent.appendChild(regionComponentTitle);
   });
 }
 
 createRegion(regionArray);
+/* Fin de la fonction d'ajout de région sur la landing page YD*/
