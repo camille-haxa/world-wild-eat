@@ -1,3 +1,4 @@
+/* Interactivité du menu burger YD*/
 const burgerButton = document.querySelector(".nav-toggler");
 const navigation = document.querySelector(".curtainNavigation");
 
@@ -7,6 +8,7 @@ function toggleNav() {
   navigation.classList.toggle("active");
 }
 
+/* Création et agrégation des régions sur la landing page par ajout d'un objet dans le tableau si nécessaire YD*/
 const regionArray = [
   {
     name: "Grand Ouest",
@@ -42,6 +44,7 @@ function createRegion(regions) {
 }
 
 createRegion(regionArray);
+/* Fin de la fonction d'ajout de région sur la landing page YD*/
 
 // debut card Region event
 
