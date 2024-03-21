@@ -46,13 +46,12 @@ function createRegion(regions) {
 createRegion(regionArray);
 /* Fin de la fonction d'ajout de région sur la landing page YD */
 
-// debut card Region event
+/**  debut événement cardRegion  CD **/
 
 // selection element pour on click
 const regionButton = document.querySelector(".region-button");
 const regionComponent = document.querySelector(".region-component");
-// declaration event
-
+/*event listener + creation card Region*/
 regionButton.addEventListener("click", createCardRegion);
 let cardRegion;
 
@@ -60,19 +59,34 @@ function createCardRegion() {
   if (cardRegion) {
     return;
   }
-  // declaration function
-
+  /*creation element card*/
   cardRegion = document.createElement("dialog");
   cardRegion.classList.add("region-card");
-  regionComponent.appendChild(cardRegion); // appendchild to region button?
+  regionComponent.appendChild(cardRegion);
+  /* X button pr fermeture*/
+  const closeRegionButton = document.createElement("button");
+  closeRegionButton.classList.add("region-close-button");
+  closeRegionButton.textContent = "X";
+  cardRegion.appendChild(closeRegionButton);
+  const closeCardRegion = document.querySelector(".region-card");
+  const closeBtn1 = document.querySelector(".region-close-button");
+  closeBtn1.addEventListener("click", function (e) {
+    e.preventDefault();
+    closeCardRegion.close();
+  });
 
+  // closeButton.addEventListener("click", () => {
+  //   dialog.close();
+  // });
+
+  /* suite creation elements de la card Region*/
   const cardRegionHeader = document.createElement("div");
   cardRegionHeader.classList.add("region-card-header");
   cardRegion.appendChild(cardRegionHeader);
 
   const cardRegionImg = document.createElement("img");
   cardRegionImg.classList.add("region-card-image");
-  cardRegionImg.src = regionArray.img;
+  // cardRegionImg.src = regionArray.img[i];
   cardRegionHeader.appendChild(cardRegionImg);
 
   const cardRegionBody = document.createElement("div");
@@ -81,25 +95,27 @@ function createCardRegion() {
 
   const cardRegionTitle = document.createElement("h3");
   cardRegionTitle.classList.add("card-region-title");
-  cardRegionBody.appendChild(cardRegionTitle);
-  // cardChoix
-  const cardVille = document.createElement("div");
-  cardVille.classList.add("card-ville");
+  // cardRegionTitle.textContent = regionArray.name[i];
+  cardRegionHeader.appendChild(cardRegionTitle);
+
+  /* creation boutons ville, campagne, coup de coeur*/
+  const cardVille = document.createElement("button");
+  cardVille.classList.add("card-ville", "card-restaurant");
   cardVille.textContent = "ville";
   cardRegion.appendChild(cardVille);
 
-  const cardCampagne = document.createElement("div");
-  cardCampagne.classList.add("card-campagne");
+  const cardCampagne = document.createElement("button");
+  cardCampagne.classList.add("card-campagne", "card-restaurant");
   cardCampagne.textContent = "campagne";
   cardRegion.appendChild(cardCampagne);
 
-  const cardCoupdeCoeur = document.createElement("div");
-  cardCoupdeCoeur.classList.add("card-coup-de-coeur");
-  cardCoupdeCoeur.textContent = "ville";
+  const cardCoupdeCoeur = document.createElement("button");
+  cardCoupdeCoeur.classList.add("card-coup-de-coeur", "card-restaurant");
+  cardCoupdeCoeur.textContent = "coup de coeur";
   cardRegion.appendChild(cardCoupdeCoeur);
 }
 
-// createCardRegion(regionArray[i]);
+createCardRegion(regionArray[i]);
 
 // if click on region 1 display region card with content from index of region 1
 // if region 2  display content array index 2, etc
