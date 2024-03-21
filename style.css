@@ -334,6 +334,12 @@ body{
     
 }
 
+.close-restaurant{
+  display: flex;
+  justify-content: space-evenly;
+  max-width: 30px;
+}
+
 .card-restaurant-description{
     border: 4px solid #4A6C6F;
     box-shadow: 5px 5px 2px 1px rgba(0, 0, 0, 0.2);
@@ -341,7 +347,7 @@ body{
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+/*    align-items: center; */
     font-family: "Montserrat" , sans-serif;
 }
 
@@ -374,20 +380,4 @@ body{
 
 .accebilite-restaurant{
     margin-bottom: 30px;
-}
-
-.button-card-restaurant {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-height: 15px;
-}
-
-.second-button-card-restaurant {
-    display: flex;
-    border-radius: 50%;
-    padding: 6px 12px;
-    background-color: #4A6C6F;
-    color: white;
-    font-size: 16px;
 }

@@ -1,4 +1,4 @@
-/* Interactivité du menu burger YD*/
+/* Interactivité du menu burger YD */
 const burgerButton = document.querySelector(".nav-toggler");
 const navigation = document.querySelector(".curtainNavigation");
 
@@ -8,7 +8,7 @@ function toggleNav() {
   navigation.classList.toggle("active");
 }
 
-/* Création et agrégation des régions sur la landing page par ajout d'un objet dans le tableau si nécessaire YD*/
+/* Création et agrégation des régions sur la landing page par ajout d'un objet dans le tableau si nécessaire YD */
 const regionArray = [
   {
     name: "Grand Ouest",
@@ -44,17 +44,28 @@ function createRegion(regions) {
 }
 
 createRegion(regionArray);
-/* Fin de la fonction d'ajout de région sur la landing page YD*/
+/* Fin de la fonction d'ajout de région sur la landing page YD */
 
 // debut card Region event
 
-//selection element pour on click
+// selection element pour on click
 const regionButton = document.querySelector(".region-button");
-//declaration function
-regionButton.addEventListener("click", (createCardRegion) => {
-  const cardRegion = document.createElement("div");
+const regionComponent = document.querySelector(".region-component");
+// declaration event
+
+regionButton.addEventListener("click", createCardRegion);
+let cardRegion;
+
+function createCardRegion() {
+  if (cardRegion) {
+    return;
+  }
+  // declaration function
+
+  cardRegion = document.createElement("dialog");
   cardRegion.classList.add("region-card");
-  regionButton.appendChild(cardRegion); //appendchild to region button?
+  regionComponent.appendChild(cardRegion); // appendchild to region button?
+
   const cardRegionHeader = document.createElement("div");
   cardRegionHeader.classList.add("region-card-header");
   cardRegion.appendChild(cardRegionHeader);
@@ -86,7 +97,7 @@ regionButton.addEventListener("click", (createCardRegion) => {
   cardCoupdeCoeur.classList.add("card-coup-de-coeur");
   cardCoupdeCoeur.textContent = "ville";
   cardRegion.appendChild(cardCoupdeCoeur);
-});
+}
 
 // createCardRegion(regionArray[i]);
 
@@ -131,81 +142,84 @@ const restaurantArray = [
 
 /* Programmation du changement de carte de restaurant (sélection) A.B */
 /* tableau : changer les valeurs de chacun ?? */
-const cardDescriptionRestaurant = document.querySelector(
-  ".card-restaurant-button"
-);
+/* const regionButton = document.querySelector(".region-button");
+const regionComponent = document.querySelector(".region-component");
+// declaration event
 
-function createCardRestaurant(selectKeys) {
-  selectKeys.forEach((selectKey) => {
-    /* image de ma card restaurant */
+regionButton.addEventListener("click", createCardRegion);
+let cardRegion;
 
-    const imgCardContainerRestaurant = document.createElement("div");
-    imgCardContainerRestaurant.classList.add("img-container-card-restaurant");
-    cardRegion.appendChild(imgCardContainerRestaurant);
+function createCardRegion() {
+  if (cardRegion) {
+    return;
+  }
+  // declaration function
 
-    const imageCardrestaurant = document.createElement("img");
-    imageCardrestaurant.classList.add("img-card-restaurant");
-    imageCardrestaurant.src = selectKey.img;
-    imgCardContainerRestaurant.appendChild(imageCardrestaurant);
+  cardRegion = document.createElement("dialog");
+  cardRegion.classList.add("region-card");
+  regionComponent.appendChild(cardRegion); */
+  /* image de ma card restaurant */
 
-    /* contenu de ma card restaurant descriptif */
+  /* contenu de ma card restaurant descriptif */
 
-    const cardRestaurantDescription = document.createElement("div");
-    cardRestaurantDescription.classList.add("card-restaurant-description");
-    cardRegion.appendChild(cardRestaurantDescription);
+  const cardRestaurantDescription = document.createElement("dialog");
+  cardRestaurantDescription.classList.add("card-restaurant-description");
+  cardRegion.appendChild(cardRestaurantDescription);
 
-    /* title sont parent de la div du contour */
+  const buttonCloseRestaurant = document.createElement("button");
+  buttonCloseRestaurant.classList.add("close-restaurant");
+  buttonCloseRestaurant.textContent = "X";
+  cardRestaurantDescription.appendChild(buttonCloseRestaurant);
 
-    const titleCityRestaurant = document.createElement("h2");
-    titleCityRestaurant.classList.add("title-city-restaurant");
-    titleCityRestaurant.textContent = selectKey.type;
-    cardRestaurantDescription.appendChild(titleCityRestaurant);
+  const imgCardContainerRestaurant = document.createElement("div");
+  imgCardContainerRestaurant.classList.add("img-container-card-restaurant");
+  cardRestaurantDescription.appendChild(imgCardContainerRestaurant);
 
-    /* nom du restaurant  */
+  const imageCardrestaurant = document.createElement("img");
+  imageCardrestaurant.classList.add("img-card-restaurant");
+  imageCardrestaurant.src = restaurantArray.img;
+  imgCardContainerRestaurant.appendChild(imageCardrestaurant);
+  /* title sont parent de la div du contour */
 
-    const nameRestaurant = document.createElement("h3");
-    nameRestaurant.classList.add("name-restaurant");
-    nameRestaurant.textContent = selectKey.name;
-    cardRestaurantDescription.appendChild(nameRestaurant);
+  const titleCityRestaurant = document.createElement("h2");
+  titleCityRestaurant.classList.add("title-city-restaurant");
+  titleCityRestaurant.textContent = restaurantArray.type;
+  cardRestaurantDescription.appendChild(titleCityRestaurant);
 
-    /* adresse */
+  /* nom du restaurant  */
 
-    const adresseRestaurant = document.createElement("h4");
-    adresseRestaurant.classList.add("adresse-restaurant");
-    adresseRestaurant.textContent = selectKey.adresse;
-    cardRestaurantDescription.appendChild(adresseRestaurant);
+  const nameRestaurant = document.createElement("h3");
+  nameRestaurant.classList.add("name-restaurant");
+  nameRestaurant.textContent = restaurantArray.name;
+  cardRestaurantDescription.appendChild(nameRestaurant);
 
-    /* description */
+  /* adresse */
 
-    const descriptionRestaurant = document.createElement("p");
-    descriptionRestaurant.classList.add("description-restaurant");
-    descriptionRestaurant.textContent = selectKey.description;
-    cardRestaurantDescription.appendChild(descriptionRestaurant);
+  const adresseRestaurant = document.createElement("h4");
+  adresseRestaurant.classList.add("adresse-restaurant");
+  adresseRestaurant.textContent = restaurantArray.adresse;
+  cardRestaurantDescription.appendChild(adresseRestaurant);
 
-    /* site internet */
+  /* description */
 
-    const siteRestaurant = document.createElement("p");
-    siteRestaurant.classList.add("site-restaurant");
-    siteRestaurant.textContent = selectKey.site;
-    cardRestaurantDescription.appendChild(siteRestaurant);
+  const descriptionRestaurant = document.createElement("p");
+  descriptionRestaurant.classList.add("description-restaurant");
+  descriptionRestaurant.textContent = restaurantArray.description;
+  cardRestaurantDescription.appendChild(descriptionRestaurant);
 
-    /* accessibilité */
+  /* site internet */
 
-    const accessibiliteRestaurant = document.createElement("p");
-    accessibiliteRestaurant.classList.add("accessibilite-restaurant");
-    accessibiliteRestaurant.testContent = selectKey.accessibilité;
-    cardRestaurantDescription.appendChild(accessibiliteRestaurant);
+  const siteRestaurant = document.createElement("p");
+  siteRestaurant.classList.add("site-restaurant");
+  siteRestaurant.textContent = restaurantArray.site;
+  cardRestaurantDescription.appendChild(siteRestaurant);
 
-    /* bouton parent de card région */
+  /* accessibilité */
 
-    const buttonCardRestaurant = document.createElement("div");
-    buttonCardRestaurant.classList.add("button-card-restaurant");
-    cardRegion.appendChild(buttonCardRestaurant);
-
-    const buttonCardRestaurantStyle = document.createElement("button");
-    buttonCardRestaurantStyle.classList.add("second-button-card-restaurant");
-    buttonCardRestaurant.appendChild(buttonCardRestaurant);
-  });
-}
-cardDescriptionRestaurant.addEventListener("click");
-createCardRestaurant(restaurantArray);
+  const accessibiliteRestaurant = document.createElement("p");
+  accessibiliteRestaurant.classList.add("accessibilite-restaurant");
+  accessibiliteRestaurant.testContent = restaurantArray.accessibilité;
+  cardRestaurantDescription.appendChild(accessibiliteRestaurant);
+} 
+/* cardDescriptionRestaurant.addEventListener("click");
+createCardRestaurant(restaurantArray); */
