@@ -23,7 +23,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  /* outline: solid 1px red ; */
+ /* outline: solid 1px red ; */
 }
 
 h1,
@@ -186,6 +186,11 @@ body {
   margin: 2rem;
 }
 
+.region-button:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
 .region-title {
   font-size: 1.7rem;
 }
@@ -200,7 +205,8 @@ body {
   background-color: var(--main-color);
   border: 4px solid var(--second-color);
   border-radius: 10px;
-  box-shadow: 5px 5px 2px 1px rgba(0, 0, 0, 0, 2);
+  box-shadow: 5px 5px 2px 1px rgba(0, 0, 0, 0.2);
+  max-width: 550px;
 }
 
 .region-card-header {
@@ -209,13 +215,25 @@ body {
 
 .region-close-button {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
+  justify-content: space-evenly;
   color: var(--second-color);
   background-color: var(--main-color);
   font-family: "luciole-regular", sans-serif;
   font-weight: bold;
   border-radius: 10px;
+  max-width: 30px;
+  border: 3px solid var(--second-color);
+  margin-left: 10px;  
+  margin-top: 8px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
+
+.region-close-button:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
 .region-card-image {
   width: 10rem;
   height: 10rem;
@@ -229,19 +247,27 @@ body {
   background-color: var(--main-color);
   display: flex;
   flex-direction: column;
-  padding-top: 4rem;
-  padding-bottom: 2rem;
 }
 
 .card-restaurant {
-  padding: 2rem;
+  padding: 1rem;
   color: var(--second-color);
   font-family: "luciole-regular", sans-serif;
-  border-color: var(--second-color);
   background-color: var(--main-color);
   border-radius: 10px;
   font-size: 1.2rem;
+  margin: 20px 60px;
+  font-size: 1.5rem;
+  border: 4px solid #4A6C6F;
+  box-shadow: 5px 5px 2px 1px rgba(0, 0, 0, 0.2);
 }
+.card-restaurant:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+
+
 
 /* fin evenement cardRegion */
 
@@ -408,4 +434,52 @@ body{
 
 .accebilite-restaurant{
     margin-bottom: 30px;
+}
+
+@media screen and (min-width: 768px) {
+  #container-top {
+    height: 150vh;
+  }
+
+  .img-landing {
+    top: 35%;
+  }
+
+  h1 {
+    font-size: 4rem;
+    top: 35%;
+  }
+
+  .container-bottom {
+    position: absolute;
+    top: 118%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 10vh;
+  }
+
+  .curtainNavigation {
+    width: 20vw;
+    min-height: 100vh;
+    align-items: center;
+    transform: translateX(300%);
+    transition: transform 0.6s ease-out;
+  }
+
+  .curtainNavigation.active {
+    transform: translate(200%);
+  }
+
+  .region-selection {
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.goTopAnchor {
+  margin-left: 90vw;
+  max-width: 4rem;
+}
+
+  .left-footer {
+    width: 40vw;
+  }
 }
