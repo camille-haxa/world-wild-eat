@@ -179,14 +179,16 @@ body {
   text-align: center;
 }
 
-.region-button {
+.region-button-1,.region-button-2,.region-button-3  {
   width: 10rem;
   height: 10rem;
   border-radius: 50%;
   margin: 2rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.region-button:hover {
+.region-button-1:hover,.region-button-2:hover,.region-button-3:hover {
   opacity: 0.6;
   cursor: pointer;
 }
@@ -482,4 +484,11 @@ body{
   .left-footer {
     width: 40vw;
   }
+}
+
+.card-ville, .card-campagne, .card-coup-de-coeur{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
 }

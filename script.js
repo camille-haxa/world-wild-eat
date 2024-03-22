@@ -25,14 +25,17 @@ const regionArray = [
 ];
 
 const regionPresentation = document.querySelector(".region-selection");
+
 function createRegion(regions) {
+  let i = 1;
   regions.forEach((region) => {
     const regionComponent = document.createElement("div");
-    regionComponent.classList.add("region-component");
+    regionComponent.classList.add(`region-component-${i}`);
     regionPresentation.appendChild(regionComponent);
 
     const regionComponentImage = document.createElement("img");
-    regionComponentImage.classList.add("region-button");
+    regionComponentImage.classList.add(`region-button-${i}`);
+    regionComponentImage.id = region.name;
     regionComponentImage.src = region.img;
     regionComponent.appendChild(regionComponentImage);
 
@@ -40,6 +43,8 @@ function createRegion(regions) {
     regionComponentTitle.classList.add("region-title");
     regionComponentTitle.textContent = region.name;
     regionComponent.appendChild(regionComponentTitle);
+
+    i += 1;
   });
 }
 
@@ -53,7 +58,7 @@ const baseline = document.querySelector(".baseline");
 /* event listener + creation card Region */
 let cardRegion;
 
-function createCardRegion() {
+function createCardRegion(restaurants, regionId) {
   // if (cardRegion) {
   //   return;
   // }
@@ -78,8 +83,11 @@ function createCardRegion() {
 
   const cardRegionImg = document.createElement("img");
   cardRegionImg.classList.add("region-card-image");
-  // cardRegionImg.src = regionArray.img[i];
   cardRegionHeader.appendChild(cardRegionImg);
+
+  const currentRegion = regionArray.find((e) => e.name === regionId);
+
+  cardRegionImg.src = currentRegion.img;
 
   const cardRegionBody = document.createElement("div");
   cardRegionBody.classList.add("region-card-body");
@@ -96,33 +104,47 @@ function createCardRegion() {
   cardVille.textContent = "Ville";
   cardRegion.appendChild(cardVille);
 
+  const villeElement = restaurants.find((e) => e.type === "Ville");
+
+  const randomImage1 = document.createElement("img");
+  randomImage1.classList.add("region-button-1");
+  randomImage1.src = villeElement.img;
+  cardVille.appendChild(randomImage1);
+
   const cardCampagne = document.createElement("button");
   cardCampagne.classList.add("card-campagne", "card-restaurant");
   cardCampagne.textContent = "Campagne";
   cardRegion.appendChild(cardCampagne);
+
+  const campagneElement = restaurants.find((e) => e.type === "Campagne");
+
+  const randomImage2 = document.createElement("img");
+  randomImage2.classList.add("region-button-1");
+  randomImage2.src = campagneElement.img;
+  cardCampagne.appendChild(randomImage2);
 
   const cardCoupdeCoeur = document.createElement("button");
   cardCoupdeCoeur.classList.add("card-coup-de-coeur", "card-restaurant");
   cardCoupdeCoeur.textContent = "Coup de coeur";
   cardRegion.appendChild(cardCoupdeCoeur);
 
-  const closeCardRegion = document.querySelector(".region-card");
+  const heartElement = restaurants.find((e) => e.type === "Coup de Coeur");
+
+  const randomImage3 = document.createElement("img");
+  randomImage3.classList.add("region-button-1");
+  randomImage3.src = heartElement.img;
+  cardCoupdeCoeur.appendChild(randomImage3);
+
+  /*  const closeCardRegion = document.querySelector(".region-card"); */
   const closeBtn1 = document.querySelector(".region-close-button");
 
   closeBtn1.addEventListener("click", () => {
     cardRegion.remove();
   });
 }
-const allButton = document.querySelectorAll(".region-button");
-allButton.forEach((btn) => {
-  /* createCardRegion(regionArray); */
-  btn.addEventListener("click", createCardRegion);
-});
-// if click on region 1 display region card with content from index of region 1
-// if region 2  display content array index 2, etc
 
-/* Tableau des cartes des restaurants différents A.B (Code Antoine ) */
-/*
+// const allButton = document.querySelectorAll(".region-component");
+
 const restaurantArray = [
   {
     img: "./ressources/images/city.jpg",
@@ -156,7 +178,25 @@ const restaurantArray = [
       "Route de montagne, Restaurant sur la gauche en arrivant en haut du Col.",
   },
 ];
-*/
+
+const regionButtons = [
+  ".region-button-1",
+  ".region-button-2",
+  ".region-button-3",
+];
+
+regionButtons.forEach((elem) => {
+  /* createCardRegion(regionArray); */
+  const currentElement = document.querySelector(elem);
+  currentElement.addEventListener("click", () =>
+    createCardRegion(restaurantArray, currentElement.id)
+  );
+});
+// if click on region 1 display region card with content from index of region 1
+// if region 2  display content array index 2, etc
+
+/* Tableau des cartes des restaurants différents A.B (Code Antoine ) */
+
 /* Programmation du changement de carte de restaurant (sélection) A.B */
 /* tableau : changer les valeurs de chacun ?? */
 /* const regionButton = document.querySelector(".region-button");
